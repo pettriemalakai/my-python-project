@@ -1,0 +1,29 @@
+** This contains only grades and comments for Part II of Mid Term**
+Great job, Logan!
+
+Grading Rubrics:
+    Problem 1:
+    - add_student:                  4.5 out of 5 points
+    - get_class_average:            8 out of 10 points
+    - get_passing_students:         8 out of 10 bonus points
+
+    Problem 3:
+    - calculate_daily_averages:     5 out of 5 points
+    - find_hottest_day:             5 out of 5 points
+    - count_cold_readings:          5 out of 5 points
+    - normalize_temperatures:       5 out of 5 points
+
+    Problem 4:
+    - clean_name:                   5 out of 5 points
+    - validate_email:               5 out of 5 points
+    - format_phone:                 5 out of 5 points
+    - process_registration:         5 out of 5 points
+
+Total Points: 60.5 out of 35
+
+Details:
+1. Line 9: why compare name with 100; you mean grade
+2. Line 24: I think you mean the parameter passed by function is grades
+3. Line 26: sum of dictionary values
+4. Line 30-35: You need to use iteration here
+5. Line 74: Good job checking against all None objects
