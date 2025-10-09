@@ -1,0 +1,50 @@
+
+
+# Problem 4
+import re
+
+def clean_name(name):
+    return name.strip().title()
+
+def validate_email(email):
+    email = email.strip()
+    
+    if email.count('@') != 1:
+        return False
+    
+    local, domain = email.split('@')
+    if '.' not in domain or not local or not domain:
+        return False
+    
+    return True
+
+def format_phone(phone):
+    digits = re.sub(r'\D', '', phone)
+    
+    if len(digits) == 10:
+        return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
+    else:
+        return "Invalid"
+
+def process_registration(data_string):
+    try:
+        name, email, phone = data_string.split(',')
+    except ValueError:
+        return None
+    
+    name = clean_name(name)
+    email = email.strip()
+    phone = phone.strip()
+    
+    if not validate_email(email):
+        return None
+    
+    formatted_phone = format_phone(phone)
+    if formatted_phone == "Invalid":
+        return None
+    
+    return {
+        "name": name,
+        "email": email,
+        "phone": formatted_phone
+    }
