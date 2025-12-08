@@ -1,11 +1,67 @@
+# Problem 1 GradeBookDictionary
+gradebook = {}
 
+# 1 add_student
+def add_student(gradebook, name, grade):
+    if name in gradebook:
+            if name > 100:
+                  print("None")
+            gradebook[name] = grade
+            print(f"{name} with grade {grade} added to the gradebook.")
+
+add_student(gradebook, name, grade)
+
+add_student(gradebook,"Alice", 85)
+add_student(gradebook, "Bob", 55)
+add_student(gradebook, "Charlie",75)
+print(gradebook)
+
+
+#2 get class average
+def get_class_average(gradebook):
+      if not grades:
+        return 0
+        return sum(grades) / len(grades)
+get_class_average(gradebook)
+
+#3 get passing students
+def get_passing_students(gradebook):
+    if grade >=60:
+            print("This student has passed")
+    else:
+        print("No students are passing")
+
+get_passing_students(gradebook)
+
+
+# Problem 3
+import numpy as np
+
+#1
+def calculate_daily_averages(temps):
+    return np.mean(temps, axis=1)
+#2
+def find_hottest_day(temps):
+    daily_avg = calculate_daily_averages(temps)
+    return np.argmax(daily_avg)
+#3
+def count_cold_readings(temps, threshold):
+    return np.sum(temps < threshold)
+#4
+def normalize_temperatures(temps):
+    min_temp = np.min(temps)
+    max_temp = np.max(temps)
+    normalized = (temps - min_temp) / (max_temp - min_temp) * 100
+    return normalized
 
 # Problem 4
 import re
 
+#1
 def clean_name(name):
     return name.strip().title()
 
+#2
 def validate_email(email):
     email = email.strip()
     
@@ -18,6 +74,7 @@ def validate_email(email):
     
     return True
 
+#3
 def format_phone(phone):
     digits = re.sub(r'\D', '', phone)
     
@@ -25,7 +82,7 @@ def format_phone(phone):
         return f"({digits[:3]}) {digits[3:6]}-{digits[6:]}"
     else:
         return "Invalid"
-
+#4
 def process_registration(data_string):
     try:
         name, email, phone = data_string.split(',')

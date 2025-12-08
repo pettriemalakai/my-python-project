@@ -296,12 +296,12 @@ def problem5():
             re.VERBOSE
         )
 
-        # e) Credit card number (with spaces or dashes optional)
+        # e) 
         CREDIT_CARD = re.compile(
             r"^(?:\d{4}[- ]?){3}\d{4}$"
         )
 
-    # Test your patterns
+    # 
     test_data = {
         'emails': ['valid@email.com', 'invalid.email', 'user@domain.co.uk'],
         'urls': ['https://example.com', 'www.test.org', 'invalid://url'],
@@ -311,7 +311,7 @@ def problem5():
                   '1234567890123456']
     }
 
-    # Validate each item using your compiled patterns
+    # 
     validation_results = {
         'emails': [bool(PatternLibrary.EMAIL.match(e)) for e in test_data['emails']],
         'urls': [bool(PatternLibrary.URL.match(u)) for u in test_data['urls']],
@@ -341,7 +341,7 @@ def problem6():
 192.168.1.1 - - [15/Mar/2024:10:30:51 +0000] "GET /contact HTTP/1.1" 404 0
 """
 
-    # a) Regex pattern to parse log lines
+    # a)
     log_pattern = re.compile(
         r'(?P<ip>\d+\.\d+\.\d+\.\d+)\s+- -\s+'
         r'\[(?P<timestamp>[^\]]+)\]\s+'
@@ -350,7 +350,7 @@ def problem6():
         re.IGNORECASE
     )
 
-    # b) Extract all log entries as structured data
+    # b) 
     parsed_logs = []
     for match in log_pattern.finditer(log_data):
         parsed_logs.append({
@@ -362,7 +362,7 @@ def problem6():
             'size': int(match.group('size'))
         })
 
-    # c) Analyze the logs
+    # c) 
     analysis = {
         'total_requests': len(parsed_logs),
         'unique_ips': list({log['ip'] for log in parsed_logs}),
@@ -372,7 +372,7 @@ def problem6():
         'methods_used': list({log['method'] for log in parsed_logs})
     }
 
-    # Find most requested path
+    # 
     path_counts = Counter(log['path'] for log in parsed_logs)
     if path_counts:
         analysis['most_requested_path'] = path_counts.most_common(1)[0][0]
@@ -381,4 +381,3 @@ def problem6():
         'parsed_logs': parsed_logs,
         'analysis': analysis
     }
-HW4 for Malakai Pettrie
